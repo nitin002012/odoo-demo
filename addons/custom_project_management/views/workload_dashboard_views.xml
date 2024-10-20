@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Menu item for Workload Dashboard -->
+        <record id="action_workload_dashboard" model="ir.actions.act_window">
+            <field name="name">Workload Dashboard</field>
+            <field name="res_model">resource.availability</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_workload_dashboard" name="Workload Dashboard" parent="project.menu_main_pm" action="action_workload_dashboard"/>
+
+        <!-- Tree View -->
+        <record id="view_workload_dashboard_tree" model="ir.ui.view">
+            <field name="name">resource.availability.tree</field>
+            <field name="model">resource.availability</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="current_task_count" readonly="1"/>
+                    <field name="max_tasks"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_workload_dashboard_form" model="ir.ui.view">
+            <field name="name">resource.availability.form</field>
+            <field name="model">resource.availability</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="current_task_count" readonly="1"/>
+                            <field name="max_tasks"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

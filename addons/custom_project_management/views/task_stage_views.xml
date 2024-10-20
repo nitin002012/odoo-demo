@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Menu item for Task Stages -->
+        <record id="action_task_stages" model="ir.actions.act_window">
+            <field name="name">Task Stages</field>
+            <field name="res_model">custom.task.stage</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_task_stages" name="Task Stages" parent="project.menu_main_pm" action="action_task_stages"/>
+
+        <!-- Tree View -->
+        <record id="view_task_stage_tree" model="ir.ui.view">
+            <field name="name">custom.task.stage.tree</field>
+            <field name="model">custom.task.stage</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_task_stage_form" model="ir.ui.view">
+            <field name="name">custom.task.stage.form</field>
+            <field name="model">custom.task.stage</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="color"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

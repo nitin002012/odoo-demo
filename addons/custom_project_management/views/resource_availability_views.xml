@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Menu item for Resource Availability -->
+        <record id="action_resource_availability" model="ir.actions.act_window">
+            <field name="name">Resource Availability</field>
+            <field name="res_model">resource.availability</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_resource_availability" name="Resource Availability" parent="project.menu_main_pm" action="action_resource_availability"/>
+
+        <!-- Tree View -->
+        <record id="view_resource_availability_tree" model="ir.ui.view">
+            <field name="name">resource.availability.tree</field>
+            <field name="model">resource.availability</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="user_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_resource_availability_form" model="ir.ui.view">
+            <field name="name">resource.availability.form</field>
+            <field name="model">resource.availability</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

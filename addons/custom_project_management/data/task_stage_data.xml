@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Default Task Stages -->
+        <record id="task_stage_todo" model="custom.task.stage">
+            <field name="name">To Do</field>
+            <field name="sequence">10</field>
+            <field name="color">0</field>
+        </record>
+
+        <record id="task_stage_in_progress" model="custom.task.stage">
+            <field name="name">In Progress</field>
+            <field name="sequence">20</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="task_stage_review" model="custom.task.stage">
+            <field name="name">Review</field>
+            <field name="sequence">30</field>
+            <field name="color">5</field>
+        </record>
+
+        <record id="task_stage_done" model="custom.task.stage">
+            <field name="name">Done</field>
+            <field name="sequence">40</field>
+            <field name="color">2</field>
+        </record>
+
+    </data>
+</odoo>

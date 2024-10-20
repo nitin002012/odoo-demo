@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Form View for Time Entry -->
+        <record id="view_time_entry_form" model="ir.ui.view">
+            <field name="name">project.time.entry.form</field>
+            <field name="model">project.time.entry</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="task_id"/>
+                            <field name="user_id" readonly="1"/>
+                            <field name="date"/>
+                            <field name="hours"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View for Time Entry -->
+        <record id="view_time_entry_tree" model="ir.ui.view">
+            <field name="name">project.time.entry.tree</field>
+            <field name="model">project.time.entry</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="task_id"/>
+                    <field name="user_id"/>
+                    <field name="date"/>
+                    <field name="hours"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Menu item for Time Entries -->
+        <record id="action_time_entry" model="ir.actions.act_window">
+            <field name="name">Time Entries</field>
+            <field name="res_model">project.time.entry</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_time_entry" name="Time Entries" parent="project.menu_main_pm" action="action_time_entry"/>
+    </data>
+</odoo>

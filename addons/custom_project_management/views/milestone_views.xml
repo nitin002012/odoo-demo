@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Menu item for Milestones -->
+        <record id="action_milestones" model="ir.actions.act_window">
+            <field name="name">Milestones</field>
+            <field name="res_model">custom.milestone</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_milestones" name="Milestones" parent="project.menu_main_pm" action="action_milestones"/>
+
+        <!-- Tree View -->
+        <record id="view_milestone_tree" model="ir.ui.view">
+            <field name="name">custom.milestone.tree</field>
+            <field name="model">custom.milestone</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="planned_date"/>
+                    <field name="actual_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_milestone_form" model="ir.ui.view">
+            <field name="name">custom.milestone.form</field>
+            <field name="model">custom.milestone</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="planned_date"/>
+                            <field name="actual_date"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

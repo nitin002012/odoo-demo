@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="view_project_task_form_inherit_time" model="ir.ui.view">
+            <field name="name">project.task.form.inherit.time</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <group string="Time Entries">
+                        <field name="time_entry_ids" widget="one2many_list">
+                            <tree editable="bottom">
+                                <field name="date"/>
+                                <field name="user_id" readonly="1"/>
+                                <field name="hours"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+            </field>
+        </record>   
+    </data>
+</odoo>

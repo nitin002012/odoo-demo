@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_custom_timesheet_tree" model="ir.ui.view">
+        <field name="name">custom.timesheet.tree</field>
+        <field name="model">custom.timesheet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="task_id"/>
+                <field name="date"/>
+                <field name="hours"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_custom_timesheet_form" model="ir.ui.view">
+        <field name="name">custom.timesheet.form</field>
+        <field name="model">custom.timesheet</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="task_id"/>
+                        <field name="date"/>
+                        <field name="hours"/>
+                        <field name="state" />
+                    </group>
+                    <footer>
+                        <button string="Submit" type="object" name="submit_timesheet" invisible="state != 'draft'" />
+                        <button string="Approve" type="object" name="approve_timesheet" invisible="state != 'submitted'" />
+                        <button string="Reject" type="object" name="reject_timesheet" invisible="state != 'submitted'" />
+                        <button string="Cancel" type="object" name="cancel_timesheet" invisible="state != 'approved'" />
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_custom_timesheet" model="ir.actions.act_window">
+        <field name="name">Timesheets</field>
+        <field name="res_model">custom.timesheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_custom_project_management_root" name="Custom Project Management" sequence="50"/>
+     <menuitem id="menu_custom_timesheet" name="Timesheets" 
+              parent="menu_custom_project_management_root" 
+              action="action_custom_timesheet" sequence="10"/>
+</odoo>
